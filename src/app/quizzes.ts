@@ -17,7 +17,7 @@ export const quizzes: Quizzes = {
     name: "0xTouYan",
     quizzes: [
       {
-        question: "What country is 0xTouYan from?",
+        question: "Which country is 0xTouYan from?",
         option1: "China",
         option2: "UK",
         option3: "Japan",
@@ -25,7 +25,7 @@ export const quizzes: Quizzes = {
         answer: 3,
       },
       {
-        question: "What is the origin of the name 0xTouYan?",
+        question: "Which is the origin of the name 0xTouYan?",
         option1: "His favorite curry place",
         option2: "His childhood nickname",
         option3: "His favorite YouTuber",
@@ -33,7 +33,7 @@ export const quizzes: Quizzes = {
         answer: 1,
       },
       {
-        question: "What crypto books 0xTouYan loves to read",
+        question: "Which crypto books 0xTouYan loves to read",
         option1: "Bitcoin White Paper",
         option2: "The Cryptopians",
         option3: "Read Write Own",

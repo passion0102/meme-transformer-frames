@@ -214,7 +214,7 @@ export default async function Home({
 
         {!isPreviousCorrect ? <FrameButton>Try again!</FrameButton> : null}
 
-        {isLast ? (
+        {isPreviousCorrect && isLast ? (
           <FrameButton action="link" target="https://warpcast.com/triviatech">
             Follow @triviatech and wait for the game release!
           </FrameButton>
