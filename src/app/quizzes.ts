@@ -11,6 +11,37 @@ type Quizzes = {
 };
 
 export const quizzes: Quizzes = {
+  "vitalik.eth": {
+    iconURL:
+      "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_jpg,w_168/https%3A%2F%2Fi.imgur.com%2FIzJxuId.jpg",
+    name: "Vitalik Buterin",
+    quizzes: [
+      {
+        question: "Which university did Vitalik enroll in?",
+        option1: "University of Waterloo",
+        option2: "Moscow State University",
+        option3: "MIT",
+        option4: "Stanford University",
+        answer: 1,
+      },
+      {
+        question: "What happened to Vitalik’s character in World of Warcraft that motivated him to create decentralized system?",
+        option1: "His character was deleted",
+        option2: "His character became the most powerful in the game",
+        option3: "His character's abilities were significantly nerfed",
+        option4: "His character was hacked",
+        answer: 3,
+      },
+      {
+        question: "Which of the following is a famous quote which was used in Vitalik’s blog?",
+        option1: "Make America Great Again",
+        option2: "Make Ethereum Network States Again",
+        option3: "Make Ethereum World Computer Again",
+        option4: "Make Ethereum Cypherpunk Again",
+        answer: 4,
+      },
+    ],
+  },
   touyan: {
     iconURL:
       "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_png,w_168/https%3A%2F%2Fi.imgur.com%2Fe9Gba3p.png",

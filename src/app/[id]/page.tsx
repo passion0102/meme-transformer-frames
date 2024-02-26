@@ -61,7 +61,7 @@ export default async function Home({
 
   const isLast = quizzes[id]?.quizzes.length == state.step;
 
-  const inter = await fetch(`${baseUrl}/Inter-Regular.ttf`);
+  const inter = await fetch(`${baseUrl}/Inter-Bold.ttf`);
   const interBuffer = await inter.arrayBuffer();
 
   let frameMessage: FrameActionDataParsedAndHubContext | null = null;
@@ -91,7 +91,7 @@ export default async function Home({
               {
                 name: "Inter",
                 data: interBuffer,
-                weight: 400,
+                weight: 700,
                 style: "normal",
               },
             ],
@@ -99,7 +99,7 @@ export default async function Home({
         >
           {isPreviousCorrect ? (
             isLast ? (
-              <div tw="flex relative w-full h-full bg-black">
+              <div tw="flex relative w-full h-full bg-black font-sans font-bold">
                 <img
                   style={{ objectFit: "cover" }}
                   alt="bg"
@@ -119,7 +119,7 @@ export default async function Home({
                 </div>
               </div>
             ) : (
-              <div tw="flex relative w-full h-full bg-black">
+              <div tw="flex relative w-full h-full bg-black font-sans font-bold">
                 <img
                   style={{ objectFit: "cover" }}
                   alt="bg"
@@ -143,27 +143,27 @@ export default async function Home({
                     />
                   </div>
 
-                  <div tw="w-full text-xl flex mb-6">
+                  <div tw="w-full text-xl flex mb-6 bg-black py-2 rounded-xl">
                     Q{state.step + 1}: {quiz?.question}
                   </div>
-                  <div tw="flex flex-col">
+                  <div tw="flex flex-col bg-black rounded-xl">
                     {quiz?.option1 && (
-                      <div tw="flex mb-3 bg-black w-full text-xl border border-2 border-white rounded-xl py-3 px-2">
+                      <div tw="flex w-full text-xl py-2 px-2">
                         A: {quiz?.option1}
                       </div>
                     )}
                     {quiz?.option2 && (
-                      <div tw="flex mb-3 bg-black w-full text-xl border border-2 border-white rounded-xl py-3 px-2">
+                      <div tw="flex w-full text-xl py-2 px-2">
                         B: {quiz?.option2}
                       </div>
                     )}
                     {quiz?.option3 && (
-                      <div tw="flex mb-3 bg-black w-full text-xl border border-2 border-white rounded-xl py-3 px-2">
+                      <div tw="flex w-full text-xl py-2 px-2">
                         C: {quiz?.option3}
                       </div>
                     )}
                     {quiz?.option4 && (
-                      <div tw="flex mb-3 bg-black w-full text-xl border border-2 border-white rounded-xl py-3 px-2">
+                      <div tw="flex w-full text-xl py-2 px-2">
                         D: {quiz?.option4}
                       </div>
                     )}
@@ -172,7 +172,7 @@ export default async function Home({
               </div>
             )
           ) : (
-            <div tw="flex relative w-full h-full bg-black">
+            <div tw="flex relative w-full h-full bg-black font-sans font-bold">
               <img
                 style={{ objectFit: "cover" }}
                 alt="bg"
@@ -192,11 +192,6 @@ export default async function Home({
               </div>
             </div>
           )}
-
-          {/* <div tw="absolute bottom-0 w-full flex justify-center items-center text-8xl px-20 pb-8 pt-4 bg-black/50 text-white text-wrap text-center">
-              {"This is test quiz"}
-            </div> */}
-          {/* </div> */}
         </FrameImage>
 
         {!!quiz?.option1 && isPreviousCorrect ? (
