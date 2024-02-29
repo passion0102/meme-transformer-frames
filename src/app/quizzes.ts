@@ -11,6 +11,38 @@ type Quizzes = {
 };
 
 export const quizzes: Quizzes = {
+  starkcity: {
+    iconURL:
+      "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=75,width=400,height=400/event-covers/qk/5b1e17d6-3c78-4186-b3ec-464a8255909f",
+    name: "StarkCity Denver",
+    quizzes: [
+      {
+        question: "What color wristbands could we get at StarkCity?",
+        option1: "Light blue",
+        option2: "Black",
+        option3: "Purple",
+        option4: "Orange",
+        answer: 1,
+      },
+      {
+        question:
+          "According to Loothero, the year 2024 in FOCG corresponds to what year in arcade games?",
+        option1: "1971",
+        option2: "1981",
+        option3: "1990",
+        option4: "2010",
+        answer: 2,
+      },
+      {
+        question: "What of the following is not a part of Toolchain, Dojo?",
+        option1: "Katana",
+        option2: "Sozo",
+        option3: "Torii",
+        option4: "Kimono",
+        answer: 4,
+      },
+    ],
+  },
   "vitalik.eth": {
     iconURL:
       "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_jpg,w_168/https%3A%2F%2Fi.imgur.com%2FIzJxuId.jpg",
@@ -25,7 +57,8 @@ export const quizzes: Quizzes = {
         answer: 1,
       },
       {
-        question: "What happened to Vitalik’s character in World of Warcraft that motivated him to create decentralized system?",
+        question:
+          "What happened to Vitalik’s character in World of Warcraft that motivated him to create decentralized system?",
         option1: "His character was deleted",
         option2: "His character became the most powerful in the game",
         option3: "His character's abilities were significantly nerfed",
@@ -33,7 +66,8 @@ export const quizzes: Quizzes = {
         answer: 3,
       },
       {
-        question: "Which of the following is a famous quote which was used in Vitalik’s blog?",
+        question:
+          "Which of the following is a famous quote which was used in Vitalik’s blog?",
         option1: "Make America Great Again",
         option2: "Make Ethereum Network States Again",
         option3: "Make Ethereum World Computer Again",
