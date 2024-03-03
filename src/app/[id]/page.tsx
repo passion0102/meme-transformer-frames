@@ -18,19 +18,46 @@ import {
 type FrameState = {
   answer: number;
   step: number;
+  x: number;
+  y: number;
 };
 
 const initialState: FrameState = {
   answer: 0,
   step: 0,
+  x: 3,
+  y: 3,
 };
 
 const reducer: FrameReducer<FrameState> = (state, action) => {
+  let x = state.x;
+  let y = state.y;
+  let step = state.step;
+  if (state.step == 0) {
+    step++;
+  } else if (state.step == 1) {
+    if (action.postBody?.untrustedData.buttonIndex == 1) {
+      x = x + 1;
+    } else if (action.postBody?.untrustedData.buttonIndex == 2) {
+      x = x - 1;
+    } else if (action.postBody?.untrustedData.buttonIndex == 3) {
+      step++;
+    }
+  } else if (state.step == 2) {
+    if (action.postBody?.untrustedData.buttonIndex == 1) {
+      y = y + 1;
+    } else if (action.postBody?.untrustedData.buttonIndex == 2) {
+      y = y - 1;
+    }
+  }
+
   return {
     answer: action.postBody?.untrustedData.buttonIndex
       ? action.postBody?.untrustedData.buttonIndex
       : 0,
-    step: state.step + 1,
+    step: step,
+    x: x,
+    y: y,
   };
 };
 
@@ -50,6 +77,7 @@ export default async function Home({
     initialState,
     previousFrame
   );
+  console.log(state);
 
   const baseUrl = process.env.NEXT_PUBLIC_HOST || "http://localhost:3000";
 
@@ -76,7 +104,7 @@ export default async function Home({
 
       <FrameContainer
         postUrl={`${baseUrl}/${id}/frames`}
-        state={isPreviousCorrect ? state : { answer: 0, step: -1 }}
+        state={state}
         // previousFrame={isPreviousCorrect ? previousFrame : initialState}
         previousFrame={previousFrame}
         pathname={`/${id}`}
@@ -137,7 +165,7 @@ export default async function Home({
                 />
                 <img
                   alt="nouns-sunglass"
-                  tw="absolute top-1/3 left-1/3 w-30"
+                  tw={`absolute top-1/${state.y} left-1/${state.x} w-30`}
                   src={`${baseUrl}/nouns-sunglass.png`}
                 />
               </div>
