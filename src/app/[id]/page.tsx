@@ -53,7 +53,6 @@ export default async function Home({
 
   const baseUrl = process.env.NEXT_PUBLIC_HOST || "http://localhost:3000";
 
-  const quiz = quizzes[id]?.quizzes[state.step];
   const isPreviousCorrect =
     state.step != 0
       ? quizzes[id]?.quizzes[state.step - 1]?.answer == state.answer
@@ -129,12 +128,17 @@ export default async function Home({
             </div>
           ) : (
             <div tw="flex relative w-full h-full bg-purple-800 font-sans font-bold justify-center items-center">
-              <div tw="flex">
+              <div tw="flex relative w-70 h-70">
                 <img
                   style={{ objectFit: "cover" }}
-                  alt="bg"
-                  tw="w-70 h-70"
+                  alt="face"
+                  tw="w-full h-full"
                   src={`${baseUrl}/no_glasses.jpg`}
+                />
+                <img
+                  alt="nouns-sunglass"
+                  tw="absolute top-1/3 left-1/3 w-30"
+                  src={`${baseUrl}/nouns-sunglass.png`}
                 />
               </div>
             </div>
@@ -150,7 +154,7 @@ export default async function Home({
         {state.step == 2 ? <FrameButton>Up</FrameButton> : null}
         {state.step == 2 ? <FrameButton>Down</FrameButton> : null}
         {state.step == 2 ? (
-          <FrameButton action="link" target="#">
+          <FrameButton action="link" target="https://#">
             Link to download
           </FrameButton>
         ) : null}
