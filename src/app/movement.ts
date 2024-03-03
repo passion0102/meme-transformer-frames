@@ -1,7 +1,8 @@
 type Movement = {
   option1: string;
   option2: string;
-  option3?: string;
+  option3: string;
+  option4?: string;
 };
 
 type Movements = {
@@ -17,11 +18,13 @@ export const movements: Movements = {
       {
         option1: "👈",
         option2: "👉",
+        option3: "Proceed",
       },
       {
         option1: "👆",
         option2: "👇",
-        option3: "Download",
+        option3: "Retry",
+        option4: "Download",
       },
     ],
   },
