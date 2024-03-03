@@ -97,121 +97,61 @@ export default async function Home({
             ],
           }}
         >
-          {isPreviousCorrect ? (
-            isLast ? (
-              <div tw="flex relative w-full h-full bg-black font-sans font-bold">
-                <img
-                  style={{ objectFit: "cover" }}
-                  alt="bg"
-                  tw="absolute w-full h-full"
-                  src={`${baseUrl}/background.png`}
-                />
-                <div tw="flex flex-col absolute top-0 bottom-0 right-0 left-0 w-full h-full p-8 text-white justify-center">
-                  <img
-                    style={{ objectFit: "cover" }}
-                    alt="bg"
-                    tw="w-40 h-40 rounded-full mx-auto mb-10"
-                    src={quizzes[id]?.iconURL}
-                  />
-                  <div tw="flex w-full text-center text-4xl">
-                    {`Congratulations! You(${frameMessage?.requesterUserData?.displayName}) are a big fan of ${quizzes[id]?.name}!`}
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div tw="flex relative w-full h-full bg-black font-sans font-bold">
-                <img
-                  style={{ objectFit: "cover" }}
-                  alt="bg"
-                  tw="absolute w-full h-full"
-                  src={`${baseUrl}/background.png`}
-                />
-
-                <div tw="flex flex-col absolute top-0 bottom-0 right-0 left-0 w-full h-full p-8 text-white">
-                  <div tw="flex justify-between w-full">
-                    <img
-                      style={{ objectFit: "cover" }}
-                      alt="bg"
-                      tw="w-[200px] mb-6"
-                      src={`${baseUrl}/logo.png`}
-                    />
-                    <img
-                      style={{ objectFit: "cover" }}
-                      alt="bg"
-                      tw="w-10 h-10 rounded-full"
-                      src={quizzes[id]?.iconURL}
-                    />
-                  </div>
-
-                  <div tw="w-full text-xl flex mb-6 bg-black py-2 rounded-xl">
-                    Q{state.step + 1}: {quiz?.question}
-                  </div>
-                  <div tw="flex flex-col bg-black rounded-xl">
-                    {quiz?.option1 && (
-                      <div tw="flex w-full text-xl py-2 px-2">
-                        A: {quiz?.option1}
-                      </div>
-                    )}
-                    {quiz?.option2 && (
-                      <div tw="flex w-full text-xl py-2 px-2">
-                        B: {quiz?.option2}
-                      </div>
-                    )}
-                    {quiz?.option3 && (
-                      <div tw="flex w-full text-xl py-2 px-2">
-                        C: {quiz?.option3}
-                      </div>
-                    )}
-                    {quiz?.option4 && (
-                      <div tw="flex w-full text-xl py-2 px-2">
-                        D: {quiz?.option4}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            )
-          ) : (
-            <div tw="flex relative w-full h-full bg-black font-sans font-bold">
-              <img
-                style={{ objectFit: "cover" }}
-                alt="bg"
-                tw="absolute w-full h-full"
-                src={`${baseUrl}/background.png`}
-              />
+          {state.step == 0 ? (
+            <div tw="flex relative w-full h-full bg-purple-800 font-sans font-bold">
               <div tw="flex flex-col absolute top-0 bottom-0 right-0 left-0 w-full h-full p-8 text-white justify-center">
+                <div tw="flex w-full items-center justify-center text-center text-4xl">
+                  MEME Transformer
+                </div>
+                <div tw="flex w-full text-center text-xl mt-8">
+                  Transform your PFP into an awesome crypto meme
+                </div>
+                <div tw="flex justify-center items-center mt-5">
+                  <div tw=" flex p-2 border-4 border-purple-600">
+                    <img
+                      style={{ objectFit: "cover" }}
+                      alt="bg"
+                      tw="w-32 h-32"
+                      src={`${baseUrl}/no_glasses.jpg`}
+                    />
+                  </div>
+                  <div tw="flex mx-5 text-6xl font-bold">→</div>
+                  <div tw="flex p-2 border-4 border-purple-600">
+                    <img
+                      style={{ objectFit: "cover" }}
+                      alt="bg"
+                      tw="w-32 h-32"
+                      src={`${baseUrl}/with_glasses.jpeg`}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div tw="flex relative w-full h-full bg-purple-800 font-sans font-bold justify-center items-center">
+              <div tw="flex">
                 <img
                   style={{ objectFit: "cover" }}
                   alt="bg"
-                  tw="w-40 h-40 rounded-full mx-auto mb-10"
-                  src={quizzes[id]?.iconURL}
+                  tw="w-70 h-70"
+                  src={`${baseUrl}/no_glasses.jpg`}
                 />
-                <div tw="flex w-full text-center text-4xl">
-                  You chose the wrong answer 😭😭😭
-                </div>
               </div>
             </div>
           )}
         </FrameImage>
 
-        {!!quiz?.option1 && isPreviousCorrect ? (
-          <FrameButton>A</FrameButton>
-        ) : null}
-        {!!quiz?.option2 && isPreviousCorrect ? (
-          <FrameButton>B</FrameButton>
-        ) : null}
-        {!!quiz?.option3 && isPreviousCorrect ? (
-          <FrameButton>C</FrameButton>
-        ) : null}
-        {!!quiz?.option4 && isPreviousCorrect ? (
-          <FrameButton>D</FrameButton>
-        ) : null}
+        {state.step == 0 ? <FrameButton>Generate meme PFP</FrameButton> : null}
 
-        {!isPreviousCorrect ? <FrameButton>Try again!</FrameButton> : null}
+        {state.step == 1 ? <FrameButton>Left</FrameButton> : null}
+        {state.step == 1 ? <FrameButton>Right</FrameButton> : null}
+        {state.step == 1 ? <FrameButton>Next</FrameButton> : null}
 
-        {isPreviousCorrect && isLast ? (
-          <FrameButton action="link" target="https://warpcast.com/triviatech">
-            Follow @triviatech and wait for the game release!
+        {state.step == 2 ? <FrameButton>Up</FrameButton> : null}
+        {state.step == 2 ? <FrameButton>Down</FrameButton> : null}
+        {state.step == 2 ? (
+          <FrameButton action="link" target="#">
+            Link to download
           </FrameButton>
         ) : null}
       </FrameContainer>
