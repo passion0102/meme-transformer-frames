@@ -4,9 +4,8 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "trivia.tech frame",
-  description:
-    "trivia.tech is onchain multiplayer buzzer quiz game on mobile. This product is designed with innovative gamified minting experience for Web3 lovers",
+  title: "PFP meme transformer frame",
+  description: "Transform your PFP in an Awesome Crypto Meme",
 };
 
 export default function RootLayout({
