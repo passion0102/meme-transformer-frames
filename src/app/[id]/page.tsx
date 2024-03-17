@@ -175,12 +175,12 @@ export default async function Home({
 
         {state.step == 0 ? <FrameButton>Generate meme PFP</FrameButton> : null}
 
-        {state.step == 1 ? <FrameButton>Left</FrameButton> : null}
-        {state.step == 1 ? <FrameButton>Right</FrameButton> : null}
+        {state.step == 1 ? <FrameButton>👈Left</FrameButton> : null}
+        {state.step == 1 ? <FrameButton>Right👉</FrameButton> : null}
         {state.step == 1 ? <FrameButton>Next</FrameButton> : null}
 
-        {state.step == 2 ? <FrameButton>Up</FrameButton> : null}
-        {state.step == 2 ? <FrameButton>Down</FrameButton> : null}
+        {state.step == 2 ? <FrameButton>Up👆</FrameButton> : null}
+        {state.step == 2 ? <FrameButton>Down👇</FrameButton> : null}
         {state.step == 2 ? (
           <FrameButton action="link" target="https://#">
             Link to download
