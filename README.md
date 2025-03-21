@@ -21,6 +21,10 @@ If running from the frames.js repository itself:
 
 6. (Optional) To use a real signer (costs warps), copy `.env.sample` to `.env` and fill in the env variables following the comments provided
 
+## Design
+
+- [Figma](https://www.figma.com/design/n7gSoxeuW469nV0aQV3ZGo/crypto-meme-transformer?node-id=0-1&t=vbP8St2bu9cr5ZHv-1)
+
 ## Docs, Questions and Help
 
 - [Frames.js Documentation](https://framesjs.org)
